@@ -121,19 +121,20 @@ def main():
 
     # get player profile call (single command example)
     # ----------------------
-    response_dict = api.get_player()
-    print('Response dictionary (get_player): \n\r{}'.format(pprint.PrettyPrinter(indent=4).pformat(response_dict)))
+    #response_dict = api.get_player()
+    #print('Response dictionary (get_player): \n\r{}'.format(pprint.PrettyPrinter(indent=4).pformat(response_dict)))
 
     # sleep due to server-side throttling
-    time.sleep(0.2)
+    #time.sleep(0.2)
 
     # get player profile + inventory call (thread-safe/chaining example)
     # ----------------------
     req = api.create_request()
-    req.get_player()
+    #req.get_player()
     req.get_inventory()
     response_dict = req.call()
-    print('Response dictionary (get_player + get_inventory): \n\r{}'.format(pprint.PrettyPrinter(indent=4).pformat(response_dict)))
+    print(json.dumps(response_dict))
+    #print('Response dictionary (get_player + get_inventory): \n\r{}'.format(pprint.PrettyPrinter(indent=4).pformat(response_dict)))
 
 if __name__ == '__main__':
     main()
